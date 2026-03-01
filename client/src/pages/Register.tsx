@@ -35,7 +35,7 @@ export default function Register() {
     //   console.error(err)
     // })
     try {
-      const res = await api.post('/register-user', data);
+      const res = await api.post('/auth/register', data);
       localStorage.setItem('accessToken', res.data.accessToken)
       navigate('/about')
 

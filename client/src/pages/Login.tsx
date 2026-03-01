@@ -18,10 +18,8 @@ export default function Login() {
     const {setAccessToken} = useAuth()
     
     async function loginOnSubmit(data: TLoginUser) {
-        // TODO: server
-        //....
         try {
-            const res = await api.post('/login-user', data)
+            const res = await api.post('/auth/login', data)
             setAccessToken(res.data.accessToken)
             navigate("/about")
         } catch (err) {

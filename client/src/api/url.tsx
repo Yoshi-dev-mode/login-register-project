@@ -24,7 +24,7 @@ api.interceptors.response.use(
     const originalRequest = error.config;
 
     // 🚫 Don't retry refresh endpoint
-    if (originalRequest.url === "/refresh") {
+    if (originalRequest.url === "/auth/refresh") {
       return Promise.reject(error);
     }
 
@@ -34,7 +34,7 @@ api.interceptors.response.use(
       try {
         console.log("🔄 Refreshing access token...");
 
-        const res = await api.post("/refresh");
+        const res = await api.post("/auth/refresh");
         const newAccessToken = res.data.accessToken;
 
         setAccessTokenGlobal(newAccessToken);

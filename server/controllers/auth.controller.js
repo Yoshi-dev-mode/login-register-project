@@ -4,26 +4,6 @@ const { generateAccessToken, generateRefreshToken } = require('../utils/generate
 const jwt = require('jsonwebtoken')
 const { client } = require('../lib/rdb')
 
-const getUsers = async (req, res) => {
-    try {
-        const user = await User.find({})
-        res.status(201).json(user)
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-}
-
-const getUser = async (req, res) => {
-    try {
-        const { id } = req.params
-        const user = await User.findById(id)
-        if (!user) return res.status(500).json({ messsage: 'User not found!' })
-        res.status(201).json(user)
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-}
-
 const postUser = async (req, res) => {
     try {
         const { username, email, password, confirm_password } = req.body
@@ -55,28 +35,6 @@ const postUser = async (req, res) => {
             email,
             password: hashedPassword,
         })
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-}
-
-const updateUser = async (req, res) => {
-    try {
-        const { id } = req.params
-        const user = await User.findByIdAndUpdate(id, req.body)
-        if (!user) return res.status(500).json({ messsage: 'User not found!' })
-        res.status(201).json(user)
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-}
-
-const deleteUser = async (req, res) => {
-    try {
-        const { id } = req.params
-        const user = await User.findByIdAndDelete(id)
-        if (!user) return res.status(500).json({ messsage: 'User not found!' })
-        res.status(201).json(user)
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
@@ -209,15 +167,8 @@ const logout = async (req, res) => {
   }
 };
 
-
-
-
 module.exports = {
-    getUsers,
-    getUser,
     postUser,
-    updateUser,
-    deleteUser,
     postUserLogin,
     refreshToken,
     logout

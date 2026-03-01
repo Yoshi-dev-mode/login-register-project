@@ -2,10 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import About from "./pages/About";
-import { useEffect, useState } from "react";
 import ProtectedRoute from "./components/ProtectedRoute";
-import axios from "axios";
-
 
 function App() {
   return (

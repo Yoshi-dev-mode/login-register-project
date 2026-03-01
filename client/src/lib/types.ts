@@ -19,3 +19,19 @@ export type TRegisterUser = z.infer<typeof registerSchema>;
 export type TLoginUser = z.infer<typeof loginSchema>
 
 export type FormType = 'login' | 'register';
+
+export type User = {
+  _id: string,
+  username: string,
+  email: string,
+}
+
+export type AuthContextType = {
+  accessToken: string | null;
+  setAccessToken: (token: string | null) => void;
+  loading: boolean
+}
+
+export type AuthProviderProps = {
+  children: React.ReactNode
+}
