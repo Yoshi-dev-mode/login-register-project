@@ -4,6 +4,7 @@ const cors = require('cors')
 const cookieParser = require("cookie-parser")
 const registerRoutes = require('./routes/index')
 const app = express()
+const logger = require('./utils/logger');
 require('dotenv').config()
 
 app.use(cors({
@@ -21,11 +22,11 @@ registerRoutes(app)
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        console.log('MONGOOSE Successfully connected!')
+        logger.info('MONGOOSE Successfully connected!')
         app.listen(process.env.PORT, () => {
-            console.log(`Welcome to localhost ${process.env.PORT}`)
+            logger.info(`Welcome to localhost ${process.env.PORT}`)
         })
     })
     .catch(() => {
-        console.error('Something went wrong!')
+        logger.error('Something went wrong!')
     })
