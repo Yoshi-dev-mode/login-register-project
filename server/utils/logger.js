@@ -2,9 +2,9 @@ const { format, createLogger, transports}= require('winston');
 const { combine, timestamp, printf, json } = format;
 const { Logtail } = require("@logtail/node");
 const { LogtailTransport } = require("@logtail/winston");
+require('dotenv').config()
 
-const token = 'cUZJEnxQztPhT2tzuf3GP8zQ'
-const logtail = new Logtail(token)
+const logtail = new Logtail(process.env.WINSTON_TOKEN)
 const logFormat = printf(({ level, message, timestamp }) => {
   return `${timestamp} [${level.toUpperCase()}]: ${message}`;
 });

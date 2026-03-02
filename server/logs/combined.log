@@ -127,3 +127,5 @@
 {"level":"info","message":"Refresh Token created successfully","service":"auth-service","timestamp":"2026-03-02T08:59:08.325Z"}
 {"level":"info","message":"User logged in successfully: evanyoshi19@gmail.com (id: 6994f82efc72d025e9289866)","service":"auth-service","timestamp":"2026-03-02T08:59:08.720Z"}
 {"level":"info","message":"Successfully fetch the users","service":"auth-service","timestamp":"2026-03-02T08:59:08.849Z"}
+{"level":"info","message":"MONGOOSE Successfully connected!","service":"auth-service","timestamp":"2026-03-02T09:03:34.328Z"}
+{"level":"info","message":"Welcome to localhost 3000","service":"auth-service","timestamp":"2026-03-02T09:03:34.330Z"}
